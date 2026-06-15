@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+**/bin/
+**/obj/
+.git
+.github
+node_modules
+**/*.user
+**/*.rsuser
+**/*.suo
+*.pdb
+*.log
+publish/
+**/*.db
