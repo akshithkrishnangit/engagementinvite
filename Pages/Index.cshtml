@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;500&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
+
             body {
                 margin: 0;
                 padding: 0;
@@ -61,10 +62,10 @@
                 }
             }
 
-            /* 💎 CARD */
+            /* 💎 CARD (FIXED WIDER PROPERLY) */
             .card {
-                width: 92%;
-                max-width: 420px;
+                width: 95%;
+                max-width: 850px; /* ✅ REAL FIX */
                 background: rgba(255,255,255,0.3);
                 backdrop-filter: blur(20px);
                 border-radius: 25px;
@@ -72,7 +73,7 @@
                 overflow: hidden;
                 position: relative;
                 z-index: 2;
-                box-shadow: 0 10px 40px rgba(123,15,42,0.25);
+                box-shadow: 0 15px 60px rgba(123,15,42,0.25);
                 animation: breathe 6s ease-in-out infinite;
             }
 
@@ -90,140 +91,97 @@
                 }
             }
 
-            /* ✨ SHIMMER */
-            .card::before {
-                content: "";
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-                transform: rotate(25deg);
-                animation: shimmer 6s infinite;
-            }
-
-            @@keyframes shimmer {
-                0% {
-                    transform: translateX(-100%) rotate(25deg);
-                }
-
-                100% {
-                    transform: translateX(100%) rotate(25deg);
-                }
-            }
-
+            /* 🖼️ BIG HERO IMAGE (LIKE YOUR SCREENSHOT STYLE) */
             .card img {
                 width: 100%;
-                height: 220px;
+                height: 320px;
                 object-fit: cover;
             }
 
             .content {
-                padding: 18px;
+                padding: 30px 45px;
             }
 
             /* 💍 HEADER */
-            .invite-heading {
-                font-family: 'Dancing Script', cursive;
-                font-size: 34px;
-                color: #7b0f2a;
-                margin-bottom: 8px;
-            }
-
             .live-badge {
                 display: inline-block;
-                padding: 5px 12px;
-                font-size: 11px;
+                padding: 6px 14px;
+                font-size: 12px;
                 color: #fff;
                 background: linear-gradient(45deg, #7b0f2a, #d4af37);
                 border-radius: 20px;
-                animation: pulseBadge 1.8s infinite;
-                margin-bottom: 10px;
+                margin-bottom: 12px;
+                /* ✨ RESTORED LIVE EFFECT */
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+                animation: glowPulse 1.8s ease-in-out infinite;
             }
 
-            @@keyframes pulseBadge {
-                0% {
-                    transform: scale(1);
-                }
-
-                50% {
-                    transform: scale(1.08);
-                }
-
-                100% {
-                    transform: scale(1);
-                }
-            }
-
-            /* TEXT */
             .invite-text {
                 font-family: 'Dancing Script', cursive;
-                font-size: 16px;
-                line-height: 1.7;
+                font-size: 25px;
+                line-height: 1.8;
                 color: #5a1a1a;
+                max-width: 700px;
+                margin: 0 auto;
             }
 
             .names {
                 font-family: 'Allura', cursive;
-                font-size: 32px;
-                font-weight: bolder;
-                color: #7b0f2a;
-                animation: glowIn 2s ease forwards;
-                opacity: 0;
-            }
-
-            @@keyframes glowIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(10px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* SAVE CARD */
-            .save-card {
-                margin-top: 12px;
-                padding: 12px;
-                border-radius: 14px;
-                background: rgba(255,255,255,0.35);
-                border: 1px solid #d4af37;
+                font-size: 36px;
                 color: #7b0f2a;
                 font-weight: bold;
+                /* ✨ RESTORED FADE IN */
+                opacity: 0;
+                animation: fadeInNames 2s ease forwards;
             }
-
-                .save-card span {
-                    display: block;
+            @@keyframes fadeInNames {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    filter: blur(4px);
                 }
 
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                    filter: blur(0);
+                }
+            }
+
+            /* 📅 SAVE CARD */
+            .save-card {
+                margin-top: 15px;
+                padding: 14px;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.4);
+                border: 1px solid #d4af37;
+            }
+
+            /* ⏳ COUNTDOWN */
             .countdown-wrapper {
                 display: flex;
-                gap: 10px;
+                gap: 12px;
                 justify-content: center;
-                margin-top: 15px;
+                margin-top: 18px;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .count-box {
-                text-align: center;
                 flex: 1;
             }
 
             .flip-card {
-                font-size: 20px;
+                font-size: 22px;
                 font-weight: bold;
                 color: #7b0f2a;
                 background: rgba(255,255,255,0.75);
                 border-radius: 12px;
-                padding: 12px 0;
-                perspective: 1000px;
-                transform-style: preserve-3d;
+                padding: 14px 0;
+                box-shadow: 0 0 15px rgba(212,175,55,0.25);
             }
 
-            /* Flip animation */
             .flip {
                 animation: flipAnim 0.6s ease;
             }
@@ -249,57 +207,46 @@
                 display: block;
             }
 
-            /* BUTTON */
+            /* 📍 VENUE BUTTON FIX */
             .btn {
                 display: block;
-                margin-top: 12px;
+                margin-top: 15px;
                 padding: 12px;
                 background: #7b0f2a;
                 color: #d4af37;
                 border-radius: 12px;
                 text-decoration: none;
+                position: relative;
+                z-index: 9999; /* 🔥 IMPORTANT FIX */
             }
 
-            /* HEART ICON */
-            .heart {
-                font-size: 18px;
-            }
-
+            /* 💖 HEARTS FIX */
             .hearts {
                 position: fixed;
-                top: 0;
-                left: 0;
                 width: 100%;
                 height: 100%;
-                pointer-events: none;
+                top: 0;
+                left: 0;
+                pointer-events: none !important;
                 z-index: 0;
-                overflow: hidden;
             }
-
-                .hearts span {
-                    position: absolute;
-                    bottom: -40px;
-                    color: #ff4d6d;
-                    font-size: 16px;
-                    animation: floatUp 8s linear infinite;
-                    opacity: 0.6;
-                }
-
-            @@keyframes floatUp {
+            @@keyframes glowPulse {
                 0% {
-                    transform: translateY(0) scale(0.8);
-                    opacity: 0;
+                    transform: scale(1);
+                    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
                 }
 
-                20% {
-                    opacity: 1;
+                50% {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 18px rgba(212, 175, 55, 0.9);
                 }
 
                 100% {
-                    transform: translateY(-120vh) scale(1.2);
-                    opacity: 0;
+                    transform: scale(1);
+                    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
                 }
             }
+
     </style>
 </head>
 
@@ -313,54 +260,40 @@
 
         <div class="content">
 
-            <div class="live-badge">Engagement Invitation</div>
-            @* <div class="live-badge">✨ LIVE INVITATION</div> *@
+          
 
             <div class="invite-text">
 
-                With the blessings of our families,<br><br>
+                With the blessings of our families,<br/>
 
                 We warmly invite you to the<br>
-                Engagement Ceremony of<br><br>
+                Engagement Ceremony of<br />
 
-                <span class="names">Akshith<br /> &<br /> Sreekala</span><br><br>
+                <span class="names">Akshith<br /> &<br /> Sreekala</span><br>
 
-                Your presence will make it special.<br><br>
+                Your presence will make it special.<br>
 
                 With Love 💖
 
             </div>
 
             <div class="save-card">
-                <span>Sunday, 23rd August 2026</span>
+                <span>Sunday, 23rd August 2026</span><br />
                 🕙 10:00 AM – 11:45 AM
             </div>
 
             <div class="countdown-wrapper">
 
-                <div class="count-box">
-                    <div class="flip-card" id="days">00</div>
-                    <label>Days</label>
-                </div>
-
-                <div class="count-box">
-                    <div class="flip-card" id="hours">00</div>
-                    <label>Hours</label>
-                </div>
-
-                <div class="count-box">
-                    <div class="flip-card" id="minutes">00</div>
-                    <label>Minutes</label>
-                </div>
-
-                <div class="count-box">
-                    <div class="flip-card" id="seconds">00</div>
-                    <label>Seconds</label>
-                </div>
+                <div class="count-box"><div class="flip-card" id="days">00</div><label>Days</label></div>
+                <div class="count-box"><div class="flip-card" id="hours">00</div><label>Hours</label></div>
+                <div class="count-box"><div class="flip-card" id="minutes">00</div><label>Minutes</label></div>
+                <div class="count-box"><div class="flip-card" id="seconds">00</div><label>Seconds</label></div>
 
             </div>
 
-            <a class="btn" href="https://maps.app.goo.gl/kJaGm4EMwUGG6Fvv8">📍 View Venue</a>
+            <a class="btn" href="https://maps.app.goo.gl/kJaGm4EMwUGG6Fvv8">
+                📍 View Venue
+            </a>
 
             <audio id="music" loop>
                 <source src="/music/music.mp3" type="audio/mpeg" />
@@ -370,7 +303,7 @@
     </div>
 
     <script>
-                        let eventDate = new Date("2026-08-23 10:00:00").getTime();
+            let eventDate = new Date("2026-08-23 10:00:00").getTime();
 
             function setFlip(id, value) {
                 let el = document.getElementById(id);
@@ -378,7 +311,7 @@
 
                 if (el.innerText !== newVal) {
                     el.classList.remove("flip");
-                    void el.offsetWidth; // restart animation
+                    void el.offsetWidth;
                     el.innerText = newVal;
                     el.classList.add("flip");
                 }
@@ -388,45 +321,29 @@
                 let now = Date.now();
                 let gap = eventDate - now;
 
-                let days = Math.floor(gap / (1000 * 60 * 60 * 24));
-                let hours = Math.floor((gap / (1000 * 60 * 60)) % 24);
-                let minutes = Math.floor((gap / (1000 * 60)) % 60);
-                let seconds = Math.floor((gap / 1000) % 60);
-
-                setFlip("days", days);
-                setFlip("hours", hours);
-                setFlip("minutes", minutes);
-                setFlip("seconds", seconds);
+                setFlip("days", Math.floor(gap / 86400000));
+                setFlip("hours", Math.floor((gap % 86400000) / 3600000));
+                setFlip("minutes", Math.floor((gap % 3600000) / 60000));
+                setFlip("seconds", Math.floor((gap % 60000) / 1000));
             }
-                        function createHearts() {
-                const container = document.getElementById("hearts");
-
-                setInterval(() => {
-                    let heart = document.createElement("span");
-                    heart.innerHTML = "❤";
-
-                    heart.style.left = Math.random() * 100 + "vw";
-                    heart.style.fontSize = (12 + Math.random() * 18) + "px";
-                    heart.style.animationDuration = (6 + Math.random() * 4) + "s";
-
-                    container.appendChild(heart);
-
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 9000);
-
-                }, 400);
-            }
-
-            createHearts();
 
             setInterval(updateCountdown, 1000);
             updateCountdown();
 
+            /* HEARTS */
+            setInterval(() => {
+                let h = document.createElement("span");
+                h.innerHTML = "❤";
+                h.style.left = Math.random() * 100 + "vw";
+                document.getElementById("hearts").appendChild(h);
+                setTimeout(() => h.remove(), 8000);
+            }, 500);
+
             /* MUSIC */
-            window.addEventListener("click", function(){
+            window.addEventListener("click", function () {
                 document.getElementById("music").play();
-            }, {once:true});
+            }, { once: true });
+
     </script>
 
 </body>
