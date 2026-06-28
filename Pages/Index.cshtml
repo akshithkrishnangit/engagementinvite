@@ -128,12 +128,13 @@
             .names {
                 font-family: 'Allura', cursive;
                 font-size: 36px;
-                color: #7b0f2a;
+                color: #8B003F;
                 font-weight: bold;
                 /* ✨ RESTORED FADE IN */
                 opacity: 0;
                 animation: fadeInNames 2s ease forwards;
             }
+
             @@keyframes fadeInNames {
                 0% {
                     opacity: 0;
@@ -150,12 +151,21 @@
 
             /* 📅 SAVE CARD */
             .save-card {
-                margin-top: 15px;
-                padding: 14px;
-                border-radius: 14px;
-                background: rgba(255,255,255,0.4);
-                border: 1px solid #d4af37;
+                margin-top: 28px;
+                padding: 18px;
+                border-radius: 18px;
+                background: linear-gradient(135deg,#D00063,#B00052,#8B003F);
+                color: #FFD76A;
+                border: 2px solid #D4AF37;
+                font-size: 18px;
+                line-height: 1.7;
+                box-shadow: 0 12px 30px rgba(176,0,82,.25);
             }
+
+                .save-card span {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
 
             /* ⏳ COUNTDOWN */
             .countdown-wrapper {
@@ -175,7 +185,7 @@
             .flip-card {
                 font-size: 22px;
                 font-weight: bold;
-                color: #7b0f2a;
+                color: #D00063;
                 background: rgba(255,255,255,0.75);
                 border-radius: 12px;
                 padding: 14px 0;
@@ -212,8 +222,9 @@
                 display: block;
                 margin-top: 15px;
                 padding: 12px;
-                background: #7b0f2a;
+                background: #D00063;
                 color: #d4af37;
+                font-weight:bold;
                 border-radius: 12px;
                 text-decoration: none;
                 position: relative;
@@ -230,6 +241,7 @@
                 pointer-events: none !important;
                 z-index: 0;
             }
+
             @@keyframes glowPulse {
                 0% {
                     transform: scale(1);
@@ -264,12 +276,12 @@
 
             <div class="invite-text">
 
-                With the blessings of our families,<br/>
+                With the blessings of our families,<br />
 
                 We warmly invite you to the<br>
                 Engagement Ceremony of<br />
 
-                <span class="names">Akshith<br /> &<br /> Sreekala</span><br>
+                <span class="names">Akshith Krishnan<br /> &<br /> Sreekala Rameshan</span><br>
 
                 Your presence will make it special.<br>
 
