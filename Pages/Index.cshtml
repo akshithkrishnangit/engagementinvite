@@ -307,8 +307,8 @@
                 📍 View Venue
             </a>
 
-            <audio id="music" loop>
-                <source src="/music/music.mp3" type="audio/mpeg" />
+            <audio id="music" loop preload="auto">
+                <source src="/music/music.mp3" type="audio/mpeg">
             </audio>
 
         </div>
@@ -352,9 +352,46 @@
             }, 500);
 
             /* MUSIC */
-            window.addEventListener("click", function () {
-                document.getElementById("music").play();
-            }, { once: true });
+                       const music = document.getElementById("music");
+
+            // Play after first user interaction
+            function playMusic() {
+                music.play().catch(() => {});
+            }
+
+            document.addEventListener("click", playMusic, { once: true });
+            document.addEventListener("touchstart", playMusic, { once: true });
+
+            // Stop when app/tab goes to background
+            function stopMusic() {
+                music.pause();
+            }
+
+            // Resume when user returns
+            function resumeMusic() {
+                music.play().catch(() => {});
+            }
+
+            // Android + iPhone
+            document.addEventListener("visibilitychange", function () {
+                if (document.hidden) {
+                    stopMusic();
+                } else {
+                    resumeMusic();
+                }
+            });
+
+            // iPhone Safari
+            window.addEventListener("pagehide", stopMusic);
+            window.addEventListener("pageshow", resumeMusic);
+
+            // Android Chrome
+            window.addEventListener("blur", stopMusic);
+            window.addEventListener("focus", resumeMusic);
+
+            // Older iOS
+            window.addEventListener("freeze", stopMusic);
+            window.addEventListener("resume", resumeMusic);
 
     </script>
 
